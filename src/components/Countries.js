@@ -14,7 +14,7 @@ const Countries = () => {
 			<h1>Countries</h1>
 			<ul>
 				{data.map((country, index) => (
-					<Card />
+					<Card key={index} country={country} />
 				))}
 			</ul>
 		</div>
