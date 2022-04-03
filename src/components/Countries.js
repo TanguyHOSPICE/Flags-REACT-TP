@@ -19,11 +19,18 @@ const Countries = () => {
 				<input type="range" min="1" max="250" defaultValue={rangeValue} onChange={(e) => setRangeValue(e.target.value)} />
 				{radios.map((continent) => (
 					<li>
-						<input type="radio" id={continent} name="continentRadio" onChange={(e) => setSelectedRadio(e.target.id)} />
+						<input
+							type="radio"
+							id={continent}
+							name="continentRadio"
+							checked={continent === selectRadio}
+							onChange={(e) => setSelectedRadio(e.target.id)}
+						/>
 						<label htmlFor={continent}>{continent}</label>
 					</li>
 				))}
 			</ul>
+			{selectRadio && <button onClick={() => setSelectedRadio("")}>Annuler la recherche</button>}
 			<ul>
 				{data
 					.filter((country) => country.continents[0].included(selectRadio))
